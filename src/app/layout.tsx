@@ -19,9 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <ThemeRegistry>{children}</ThemeRegistry>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
+        <div key="root" id="__next">
+          <ThemeRegistry>{children}</ThemeRegistry>
+        </div>
       </body>
     </html>
   );
