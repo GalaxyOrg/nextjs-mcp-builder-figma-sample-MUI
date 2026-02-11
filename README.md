@@ -29,6 +29,15 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Build / CI (e.g. Builder.io)
+
+**Root cause of build timeouts:** The build timeout can be insufficient for a Next.js production build that includes TypeScript compilation and static page generation.
+
+**Mitigations in this repo:**
+
+- The `build` script uses **Webpack** (`next build --webpack`) for more predictable CI build times.
+- If the build still times out, **increase the build/validate step timeout** in your CI (e.g. Builder.io) to at least **3–5 minutes**.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
